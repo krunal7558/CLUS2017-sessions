@@ -1,6 +1,4 @@
 # Script to download all Ciscolive session pdf and mp4 files. 
-
-
 #!/usr/local/bin/python3
 
 import requests
@@ -25,7 +23,7 @@ def get_session(url):
     return session_filename
 
 if __name__ == '__main__':
-    logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
+    logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.ERROR)
     if len(argv) != 3:
        logging.error("Enter file name as First argument and file type pdf or mp4 as second argument!")
        exit()
@@ -39,12 +37,12 @@ if __name__ == '__main__':
                 url = pdfbaseurl+sessionid+'.'+argv[2].strip()
             elif argv[2].strip() == 'mp4':
                 url = mp4baseurl+sessionid+'.'+argv[2].strip()
-            else: # by default download pdf of session
+            else:
                 logging.error("Missing file type pdf or mp4 as second ergument.")
                 exit()
             logging.debug("Getting session {} from url {}".format(sessionid,url))
             try:
-                logging.info("Dowloading session {}".format(sessionid+'.'+argv[2]))
+                print("Dowloading session {}".format(sessionid+'.'+argv[2]))
                 print("Finished downloading " + get_session(url))
             except Exception as e:
                 logging.debug(e)
