@@ -1,0 +1,5 @@
+Python version 3
+
+Python library requests
+
+$ pip install requests
