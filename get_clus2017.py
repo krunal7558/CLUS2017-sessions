@@ -38,7 +38,7 @@ if __name__ == '__main__':
             elif argv[2].strip() == 'mp4':
                 url = mp4baseurl+sessionid+'.'+argv[2].strip()
             else:
-                logging.error("Missing file type pdf or mp4 as second ergument.")
+                logging.error("Missing or wrong file type, pdf or mp4 as second argument.")
                 exit()
             logging.debug("Getting session {} from url {}".format(sessionid,url))
             try:
